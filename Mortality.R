@@ -1,6 +1,7 @@
-#RNN steht für "recurrent neural network". Bei RNN beruht die Vorhersage nicht nur auf den Eigenschaften zu demakteullen zeitpunkt,
-#sondern auch auf den von vorherigen Zeitpunkten Daher ist RNN insbesondere dann esonders wirkungsvoll, wenn die Daten des nächsten Schritte in einer Sequence 
-#von den Daten des vorherigen Schrittes abhängen.
+#With RNN, the prediction is based not only on the properties at the current time,
+#Therefore, RNN is particularly effective when the data of the next step in a sequence depends on the data of the previous step. 
+#depend on the data of the previous step.
+
 install.packages('keras')
 install.packages('tidyverse')
 install.packages('caret')
@@ -8,7 +9,7 @@ install.packages('caret')
 	
 library(keras) # for deep learning
 library(tensorflow)
-#Falls es bei dem Model probleme gibt, muß die nächste Zeile hier ganz am Anfang ausgeführt werden
+#Falls es bei dem Model probleme gibt, muss die nächste Zeile hier ganz am Anfang ausgeführt werden
 #install_tensorflow()
 library(tidyverse) # general utility functions
 library(caret) # machine learning utility functions
@@ -44,9 +45,9 @@ set.seed(123)
 #nur die daten extrahieren, welche benötigt werden
 mor<-mort_data$anteil
 table(mor)
-#Der vektor muß jetzt in teile der Länge max-lenght + 1 zerlegt werden, da aus den Vorgängengern der Länge max_lenght 
+#The vector must now be divided into parts of the length max-lenght + 1, since from the previous vectors of the length max_lenght 
 #der nachste Schritt vorhergesagt werden soll
-#Dabei werden überlappendesequencen gebildet
+#Dabei werden overlapping sequence gebildet
 #in dem folgenden Beispiel ist die länge 3 und er overlap ist 2
 #origonale  1 2 3 4 5 6 
 #teil 1     1 2 3
